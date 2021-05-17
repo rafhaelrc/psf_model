@@ -1,0 +1,14 @@
+pucrs/smart/ontology/main.java
+ pucrs.smart.ontology.main
+pucrs/smart/ontology/OwlOntoLayer.java
+ pucrs.smart.ontology.OwlOntoLayer
+pucrs/smart/ontology/mas/OntologyArtifact.java
+ pucrs.smart.ontology.mas.OntologyArtifact
+pucrs/smart/ontology/oo/OntoQueryLayerString.java
+ pucrs.smart.ontology.oo.OntoQueryLayerString
+pucrs/smart/ontology/mas/OntoQueryLayerLiteral.java
+ pucrs.smart.ontology.mas.OntoQueryLayerLiteral
+pucrs/smart/ontology/OntoQueryLayer.java
+ pucrs.smart.ontology.OntoQueryLayer
+tools/ElectronicMachine.java
+ tools.ElectronicMachine

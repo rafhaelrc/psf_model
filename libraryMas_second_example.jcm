@@ -1,0 +1,39 @@
+/*
+ * Scenario Book - Donation
+ * _second_example
+ */
+
+mas libraryMas {
+
+    agent bob {
+    	// talvez só multiagentSystems
+    	// ou book(multiAgentSystems) 
+    	goals: haveBook("multiAgentSystems") // bring(haveBook, "multiAgentSystems")
+    	focus: onto
+		focus: wsp_library.electronic_machine
+    }
+    
+    workspace wsp_library{
+    	artifact electronic_machine: tools.ElectronicMachine()	 
+    }
+    
+    
+	workspace wsp_onto{
+		//artifact onto: pucrs.smart.ontology.mas.OntologyArtifact("src/resources/scenario-book-donation-unique.owl")
+		//artifact onto: pucrs.smart.ontology.mas.OntologyArtifact("src/resources/scenario-book-hostel.owl")
+		artifact onto: pucrs.smart.ontology.mas.OntologyArtifact("src/resources/scenario-book-rent.owl")
+	}
+	
+   /*institution bh:sai_specifications/constitutive-donation-book.sai{
+       workspaces: wsp_donation_book
+   }
+   
+   institution bh:sai_specifications/constitutive-hostel-book.sai{
+       workspaces: wsp_hostel_book
+   }*/
+   
+   institution bh:sai_specifications/constitutive-rent-book.sai{
+       workspaces: wsp_rent_book
+   }
+   
+}

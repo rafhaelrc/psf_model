@@ -1,0 +1,27 @@
+/**/
+
+institution_id : bhInst.
+
+
+status_functions:
+
+agents: buyer.
+
+/*events: pay(X). */
+
+events: pay. 
+
+/* states: pay.   play(A,R,G), responsible(G,S), committed(A,Mission,S), achieved(S,G,A), done(S,G,A).*/
+
+
+constitutive_rules:
+
+/*In this application, the agent Giacomo is always the house owner.*/
+/*2: count-as play(giacomo,house_owner,"hsh_group").*/
+
+1: bob count-as buyer.
+
+/*2: transferBook count-as pay(X).*/
+
+2: transferBook count-as pay. 
+

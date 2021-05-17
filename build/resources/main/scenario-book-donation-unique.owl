@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#"
+     xml:base="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:social_ontology="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#hasFunction -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#hasFunction"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#bring -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#bring">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Have"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Book"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#hasFunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#hasFunction">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#isFunctionOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Status"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Function"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#hasOwner -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#hasOwner">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Product"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#hasPurpose -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#hasPurpose">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#isPurposeOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Function"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Purpose"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#hasStatus -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#hasStatus">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#isStatusOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Status"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Status"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#isFunctionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#isFunctionOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#isPurposeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#isPurposeOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#isStatusOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#isStatusOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Book -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Book">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Have -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Have">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Purpose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#PhysicalAction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#PhysicalAction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Product -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Product"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Purpose -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Purpose"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#ReceiveAnything -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#ReceiveAnything">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#PhysicalAction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Status -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Status"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Donation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Donation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Status"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Function -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Function"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Gain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Gain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#donation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#donation">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Donation"/>
+        <hasFunction rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#gain"/>
+        <social_ontology:hasFunction rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#gain"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#gain -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#gain">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Gain"/>
+        <hasPurpose rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#haveBook"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#haveBook -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#haveBook">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Have"/>
+        <bring rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#multiAgentSystems"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#multiAgentSystems -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#multiAgentSystems">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Book"/>
+        <hasOwner rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#tom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#receiveAnything -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#receiveAnything">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#ReceiveAnything"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#tom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#tom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#Person"/>
+        <hasOwner rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#multiAgentSystems"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

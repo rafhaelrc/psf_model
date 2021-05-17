@@ -1,0 +1,68 @@
+/*
+    libraryMas
+    ---------------------------
+
+    JaCaMo Application File
+
+    This file defines the initial state of the MAS (initial agents, environment, organisation, ....)
+
+    (see jacamo/doc/jcm.html for more information about what can be defined in this file)
+
+    JaCaMo 0.9
+    September 14, 2020 - 18:08:44
+*/
+
+mas libraryMas {
+
+    agent bob {
+    	goals: haveBook("multiAgentSystems")
+    	focus: onto_different_intentionality
+		focus: wsp_library.electronic_machine
+    }
+    
+    
+    agent alice {
+    	goals: getBook("multiAgentSystems")
+    	focus: onto_different_intentionality
+		focus: wsp_library.electronic_machine
+    	   	
+    }
+    
+    agent francois {
+    	goals: obtenirBook("multiAgentSystems")
+    	focus: onto_different_intentionality
+		focus: wsp_library.electronic_machine
+    	
+    	   	
+    }
+    
+    agent jose {
+    	goals: obterBook("multiAgentSystems")
+    	focus: onto_different_intentionality
+		focus: wsp_library.electronic_machine
+    	
+    	   	
+    }
+    
+    agent joao {
+    	goals: terBook("multiAgentSystems")
+    	focus: onto_different_intentionality
+		focus: wsp_library.electronic_machine
+    	
+    	   	
+    } 
+    
+    
+    workspace wsp_library{
+    	artifact electronic_machine: tools.ElectronicMachine()	 
+    }
+    
+    
+	workspace wsp_onto{
+		artifact onto_different_intentionality: pucrs.smart.ontology.mas.OntologyArtifact("src/resources/initial_ontology_model_four_version.owl")
+	}
+	
+    institution bh:constitutive.sai{
+       workspaces: wsp_library
+   }
+}
