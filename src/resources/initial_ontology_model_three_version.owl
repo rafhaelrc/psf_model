@@ -24,6 +24,9 @@
         <Class IRI="#Have"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#HaveBook"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Obtenir"/>
     </Declaration>
     <Declaration>
@@ -51,6 +54,9 @@
         <Class IRI="#TransferBook"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#brings"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasOwner"/>
     </Declaration>
     <Declaration>
@@ -64,9 +70,6 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasStatus"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#haveBook"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#haveProduct"/>
@@ -135,6 +138,10 @@
         <Class IRI="#Purpose"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#HaveBook"/>
+        <Class IRI="#Have"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Obtenir"/>
         <Class IRI="#Purpose"/>
     </SubClassOf>
@@ -155,7 +162,7 @@
         <NamedIndividual IRI="#getBook"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Have"/>
+        <Class IRI="#HaveBook"/>
         <NamedIndividual IRI="#haveBook"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -195,14 +202,19 @@
         <NamedIndividual IRI="#transferBook"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#haveBook"/>
+        <ObjectProperty IRI="#brings"/>
         <NamedIndividual IRI="#getBook"/>
         <NamedIndividual IRI="#multiAgentSystems"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#haveBook"/>
+        <ObjectProperty IRI="#brings"/>
         <NamedIndividual IRI="#haveBook"/>
         <NamedIndividual IRI="#multiAgentSystems"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPurposeOf"/>
+        <NamedIndividual IRI="#haveBook"/>
+        <NamedIndividual IRI="#pay"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasOwner"/>
@@ -215,12 +227,12 @@
         <NamedIndividual IRI="#joao"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#haveBook"/>
+        <ObjectProperty IRI="#brings"/>
         <NamedIndividual IRI="#obtenirBook"/>
         <NamedIndividual IRI="#multiAgentSystems"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#haveBook"/>
+        <ObjectProperty IRI="#brings"/>
         <NamedIndividual IRI="#obterBook"/>
         <NamedIndividual IRI="#multiAgentSystems"/>
     </ObjectPropertyAssertion>
@@ -250,7 +262,7 @@
         <NamedIndividual IRI="#terBook"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#haveBook"/>
+        <ObjectProperty IRI="#brings"/>
         <NamedIndividual IRI="#terBook"/>
         <NamedIndividual IRI="#multiAgentSystems"/>
     </ObjectPropertyAssertion>
@@ -308,6 +320,10 @@
         <ObjectProperty IRI="#isStatusOf"/>
     </IrreflexiveObjectProperty>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#brings"/>
+        <Class IRI="#Have"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasOwner"/>
         <Class IRI="#Product"/>
     </ObjectPropertyDomain>
@@ -328,13 +344,13 @@
         <Class IRI="#Status-Function"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#haveBook"/>
-        <Class IRI="#Have"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#haveProduct"/>
         <Class IRI="#Have"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#brings"/>
+        <Class IRI="#Product"/>
+    </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasOwner"/>
         <Class IRI="#Person"/>
@@ -356,15 +372,11 @@
         <Class IRI="#Status-Function"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#haveBook"/>
-        <Class IRI="#Book"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#haveProduct"/>
         <Class IRI="#Product"/>
     </ObjectPropertyRange>
     <DisjointObjectProperties>
-        <ObjectProperty IRI="#haveBook"/>
+        <ObjectProperty IRI="#brings"/>
         <ObjectProperty IRI="#haveProduct"/>
     </DisjointObjectProperties>
     <DataPropertyDomain>

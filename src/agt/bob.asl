@@ -1,7 +1,7 @@
 
 /*
  * First example - different agents and purposes in the same scenario. 
- 
+ */
 
 { include("common.asl") }
 
@@ -18,7 +18,7 @@
 	!commonPurpose("haveBook", Product);
 	.
 
-*/
+//*/
 
 
 
