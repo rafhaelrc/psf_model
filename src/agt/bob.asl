@@ -8,6 +8,15 @@
  // plan for different purposes and same scenario. 
 
 
++!isOwnerOf(Owner, Product) 
+ <- .print("Teste");
+ 	.print("Owner is: " , Owner);
+ 	.print("Product is: " , Product);
+ 	// isPurposeofStatusFunction(Purpose, Product, NameStatusFunction);
+ 	isPurposeOfStatusFunction(State, NamePurpose); // criar uma nova função aqui
+ .
+
+
 +!haveBook(Product)
 	<- 
 	//P = haveBook(Product);

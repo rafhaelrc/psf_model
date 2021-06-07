@@ -15,7 +15,8 @@
 mas libraryMas {
 
     agent bob {
-    	goals: haveBook("multiAgentSystems")
+    	//goals: haveBook("multiAgentSystems")
+    	goals: isOwnerOf(joao, bookA)
     	focus: onto_different_intentionality
 		focus: wsp_library.electronic_machine
     }
@@ -60,7 +61,7 @@ mas libraryMas {
     
     
 	workspace wsp_onto{
-		artifact onto_different_intentionality: pucrs.smart.ontology.mas.OntologyArtifact("src/resources/initial_ontology_model_four_version.owl")
+		artifact onto_different_intentionality: pucrs.smart.ontology.mas.OntologyArtifact("src/resources/initial_ontology_model_five_version.owl")
 	}
 	
     institution bh:constitutive.sai{
