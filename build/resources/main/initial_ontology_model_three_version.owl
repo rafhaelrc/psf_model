@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_3"
+     xml:base="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_4"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_3">
-    <Prefix name="" IRI="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_3"/>
+     ontologyIRI="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_4">
+    <Prefix name="" IRI="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_4"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
@@ -18,16 +18,13 @@
         <Class IRI="#Book"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Buy"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Function"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Get"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Have"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HaveBook"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Obtenir"/>
@@ -48,7 +45,7 @@
         <Class IRI="#Purpose"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Status"/>
+        <Class IRI="#Status-Function"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Ter"/>
@@ -57,10 +54,7 @@
         <Class IRI="#TransferBook"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#bring"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasFunction"/>
+        <ObjectProperty IRI="#brings"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasOwner"/>
@@ -81,9 +75,6 @@
         <ObjectProperty IRI="#haveProduct"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#isFunctionOf"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#isOwnerOf"/>
     </Declaration>
     <Declaration>
@@ -100,9 +91,6 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasValue"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#buy"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#getBook"/>
@@ -142,16 +130,16 @@
         <Class IRI="#Product"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Buy"/>
-        <Class IRI="#Function"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Get"/>
         <Class IRI="#Purpose"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Have"/>
         <Class IRI="#Purpose"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HaveBook"/>
+        <Class IRI="#Have"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Obtenir"/>
@@ -170,15 +158,11 @@
         <Class IRI="#PhysicalAction"/>
     </SubClassOf>
     <ClassAssertion>
-        <Class IRI="#Buy"/>
-        <NamedIndividual IRI="#buy"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Get"/>
         <NamedIndividual IRI="#getBook"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Have"/>
+        <Class IRI="#HaveBook"/>
         <NamedIndividual IRI="#haveBook"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -202,7 +186,7 @@
         <NamedIndividual IRI="#obterBook"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Status"/>
+        <Class IRI="#Status-Function"/>
         <NamedIndividual IRI="#pay"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -217,48 +201,20 @@
         <Class IRI="#TransferBook"/>
         <NamedIndividual IRI="#transferBook"/>
     </ClassAssertion>
-    <DifferentIndividuals>
-        <NamedIndividual IRI="#buy"/>
-        <NamedIndividual IRI="#haveBook"/>
-        <NamedIndividual IRI="#joao"/>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#brings"/>
+        <NamedIndividual IRI="#getBook"/>
         <NamedIndividual IRI="#multiAgentSystems"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#brings"/>
+        <NamedIndividual IRI="#haveBook"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPurposeOf"/>
+        <NamedIndividual IRI="#haveBook"/>
         <NamedIndividual IRI="#pay"/>
-        <NamedIndividual IRI="#transferBook"/>
-    </DifferentIndividuals>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasPurpose"/>
-        <NamedIndividual IRI="#buy"/>
-        <NamedIndividual IRI="#getBook"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasPurpose"/>
-        <NamedIndividual IRI="#buy"/>
-        <NamedIndividual IRI="#haveBook"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasPurpose"/>
-        <NamedIndividual IRI="#buy"/>
-        <NamedIndividual IRI="#obtenirBook"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasPurpose"/>
-        <NamedIndividual IRI="#buy"/>
-        <NamedIndividual IRI="#obterBook"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasPurpose"/>
-        <NamedIndividual IRI="#buy"/>
-        <NamedIndividual IRI="#terBook"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#bring"/>
-        <NamedIndividual IRI="#getBook"/>
-        <NamedIndividual IRI="#multiAgentSystems"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#bring"/>
-        <NamedIndividual IRI="#haveBook"/>
-        <NamedIndividual IRI="#multiAgentSystems"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasOwner"/>
@@ -271,22 +227,42 @@
         <NamedIndividual IRI="#joao"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#bring"/>
+        <ObjectProperty IRI="#brings"/>
         <NamedIndividual IRI="#obtenirBook"/>
         <NamedIndividual IRI="#multiAgentSystems"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#bring"/>
+        <ObjectProperty IRI="#brings"/>
         <NamedIndividual IRI="#obterBook"/>
         <NamedIndividual IRI="#multiAgentSystems"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasFunction"/>
+        <ObjectProperty IRI="#hasPurpose"/>
         <NamedIndividual IRI="#pay"/>
-        <NamedIndividual IRI="#buy"/>
+        <NamedIndividual IRI="#getBook"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#bring"/>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#haveBook"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#obtenirBook"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#obterBook"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#terBook"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#brings"/>
         <NamedIndividual IRI="#terBook"/>
         <NamedIndividual IRI="#multiAgentSystems"/>
     </ObjectPropertyAssertion>
@@ -326,10 +302,6 @@
         <Literal>multiAgentSystems</Literal>
     </DataPropertyAssertion>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasFunction"/>
-        <ObjectProperty IRI="#isFunctionOf"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
         <ObjectProperty IRI="#hasOwner"/>
         <ObjectProperty IRI="#isOwnerOf"/>
     </InverseObjectProperties>
@@ -348,12 +320,8 @@
         <ObjectProperty IRI="#isStatusOf"/>
     </IrreflexiveObjectProperty>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#bring"/>
+        <ObjectProperty IRI="#brings"/>
         <Class IRI="#Have"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasFunction"/>
-        <Class IRI="#Status"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasOwner"/>
@@ -361,7 +329,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasPurpose"/>
-        <Class IRI="#Function"/>
+        <Class IRI="#Status-Function"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasReason"/>
@@ -373,19 +341,15 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasStatus"/>
-        <Class IRI="#Status"/>
+        <Class IRI="#Status-Function"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#haveProduct"/>
         <Class IRI="#Have"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#bring"/>
-        <Class IRI="#Book"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasFunction"/>
-        <Class IRI="#Function"/>
+        <ObjectProperty IRI="#brings"/>
+        <Class IRI="#Product"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasOwner"/>
@@ -405,14 +369,14 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasStatus"/>
-        <Class IRI="#Status"/>
+        <Class IRI="#Status-Function"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#haveProduct"/>
         <Class IRI="#Product"/>
     </ObjectPropertyRange>
     <DisjointObjectProperties>
-        <ObjectProperty IRI="#bring"/>
+        <ObjectProperty IRI="#brings"/>
         <ObjectProperty IRI="#haveProduct"/>
     </DisjointObjectProperties>
     <DataPropertyDomain>
@@ -441,24 +405,24 @@
     </DataPropertyRange>
     <DLSafeRule>
         <Body>
-            <ObjectPropertyAtom>
-                <ObjectProperty IRI="#hasReason"/>
-                <Variable IRI="urn:swrl:var#T"/>
-                <Variable IRI="urn:swrl:var#B"/>
-            </ObjectPropertyAtom>
             <ClassAtom>
                 <Class IRI="#Book"/>
                 <Variable IRI="urn:swrl:var#B"/>
-            </ClassAtom>
-            <ClassAtom>
-                <Class IRI="#TransferBook"/>
-                <Variable IRI="urn:swrl:var#T"/>
             </ClassAtom>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="#hasOwner"/>
                 <Variable IRI="urn:swrl:var#B"/>
                 <Variable IRI="urn:swrl:var#O"/>
             </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasReason"/>
+                <Variable IRI="urn:swrl:var#T"/>
+                <Variable IRI="urn:swrl:var#B"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#TransferBook"/>
+                <Variable IRI="urn:swrl:var#T"/>
+            </ClassAtom>
         </Body>
         <Head>
             <ObjectPropertyAtom>
@@ -470,24 +434,24 @@
     </DLSafeRule>
     <DLSafeRule>
         <Body>
-            <ObjectPropertyAtom>
-                <ObjectProperty IRI="#hasReason"/>
-                <Variable IRI="urn:swrl:var#T"/>
-                <Variable IRI="urn:swrl:var#B"/>
-            </ObjectPropertyAtom>
             <ClassAtom>
                 <Class IRI="#Book"/>
                 <Variable IRI="urn:swrl:var#B"/>
-            </ClassAtom>
-            <ClassAtom>
-                <Class IRI="#TransferBook"/>
-                <Variable IRI="urn:swrl:var#T"/>
             </ClassAtom>
             <DataPropertyAtom>
                 <DataProperty IRI="#hasPrice"/>
                 <Variable IRI="urn:swrl:var#B"/>
                 <Variable IRI="urn:swrl:var#P"/>
             </DataPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasReason"/>
+                <Variable IRI="urn:swrl:var#T"/>
+                <Variable IRI="urn:swrl:var#B"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#TransferBook"/>
+                <Variable IRI="urn:swrl:var#T"/>
+            </ClassAtom>
         </Body>
         <Head>
             <DataPropertyAtom>

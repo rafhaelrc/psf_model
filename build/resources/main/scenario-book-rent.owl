@@ -41,28 +41,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#bring -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#bring">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Have"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Book"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#hasFunction -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#hasFunction">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#isFunctionOf"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Function"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#hasOwner -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#hasOwner">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#isOwnerOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Product"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Person"/>
     </owl:ObjectProperty>
@@ -73,7 +55,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#hasPurpose">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#isPurposeOf"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Function"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status-Function"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Purpose"/>
     </owl:ObjectProperty>
     
@@ -84,15 +66,25 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#hasStatus">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#isStatusOf"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status-Function"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status-Function"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#isFunctionOf -->
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#haveBook -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#isFunctionOf"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#haveBook">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Have"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Book"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#isOwnerOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#isOwnerOf"/>
     
 
 
@@ -127,14 +119,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Book">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Product"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Borrow -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Borrow">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Function"/>
     </owl:Class>
     
 
@@ -174,7 +158,7 @@
     <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Rent -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Rent">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status-Function"/>
     </owl:Class>
     
 
@@ -187,15 +171,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status -->
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status-Function -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status"/>
-    
-
-
-    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Function -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#Function"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Status-Function"/>
     
 
 
@@ -210,20 +188,12 @@
     
 
 
-    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#borrow -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#borrow">
-        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Borrow"/>
-        <book-rent:hasPurpose rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#haveBook"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#haveBook -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#haveBook">
         <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Have"/>
-        <book-rent:bring rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#multiAgentSystems"/>
+        <book-rent:haveBook rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#multiAgentSystems"/>
+        <book-rent:isPurposeOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#rent"/>
     </owl:NamedIndividual>
     
 
@@ -241,7 +211,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#rent">
         <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Rent"/>
-        <book-rent:hasFunction rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#borrow"/>
+        <book-rent:hasPurpose rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#haveBook"/>
     </owl:NamedIndividual>
     
 
@@ -258,8 +228,29 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#tom">
         <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#Person"/>
-        <book-rent:hasOwner rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#multiAgentSystems"/>
+        <book-rent:isOwnerOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#multiAgentSystems"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#haveBook"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#multiAgentSystems"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#rent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#signLoan"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-rent#tom"/>
+        </owl:distinctMembers>
+    </rdf:Description>
 </rdf:RDF>
 
 

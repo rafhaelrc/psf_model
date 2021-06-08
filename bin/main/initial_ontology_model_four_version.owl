@@ -1,0 +1,469 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_4"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_4">
+    <Prefix name="" IRI="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_4"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="swrl" IRI="http://www.w3.org/2003/11/swrl#"/>
+    <Prefix name="swrlb" IRI="http://www.w3.org/2003/11/swrlb#"/>
+    <Declaration>
+        <Class IRI="#Book"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Get"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Have"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HaveBook"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Obtenir"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Obter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PhysicalAction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Product"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Purpose"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Status-Function"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TransferBook"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#brings"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasOwner"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPurpose"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasReason"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasReceiver"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasStatus"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haveProduct"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isOwnerOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPurposeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isStatusOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasPrice"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasTitle"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasValue"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#getBook"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#haveBook"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#joao"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#multiAgentOrientedProgramming"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#obtenirBook"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#obterBook"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#pay"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#terBook"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#teste1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#transferBook"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Book"/>
+        <Class IRI="#Product"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Get"/>
+        <Class IRI="#Purpose"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Have"/>
+        <Class IRI="#Purpose"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HaveBook"/>
+        <Class IRI="#Have"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Obtenir"/>
+        <Class IRI="#Purpose"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Obter"/>
+        <Class IRI="#Purpose"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ter"/>
+        <Class IRI="#Purpose"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TransferBook"/>
+        <Class IRI="#PhysicalAction"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#Get"/>
+        <NamedIndividual IRI="#getBook"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HaveBook"/>
+        <NamedIndividual IRI="#haveBook"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Person"/>
+        <NamedIndividual IRI="#joao"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Book"/>
+        <NamedIndividual IRI="#multiAgentOrientedProgramming"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Book"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Obtenir"/>
+        <NamedIndividual IRI="#obtenirBook"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Obter"/>
+        <NamedIndividual IRI="#obterBook"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Status-Function"/>
+        <NamedIndividual IRI="#pay"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Ter"/>
+        <NamedIndividual IRI="#terBook"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TransferBook"/>
+        <NamedIndividual IRI="#teste1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#TransferBook"/>
+        <NamedIndividual IRI="#transferBook"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#brings"/>
+        <NamedIndividual IRI="#getBook"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#brings"/>
+        <NamedIndividual IRI="#haveBook"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPurposeOf"/>
+        <NamedIndividual IRI="#haveBook"/>
+        <NamedIndividual IRI="#pay"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasOwner"/>
+        <NamedIndividual IRI="#multiAgentOrientedProgramming"/>
+        <NamedIndividual IRI="#joao"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasOwner"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+        <NamedIndividual IRI="#joao"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#brings"/>
+        <NamedIndividual IRI="#obtenirBook"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#brings"/>
+        <NamedIndividual IRI="#obterBook"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#getBook"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#haveBook"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#obtenirBook"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#obterBook"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#terBook"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#brings"/>
+        <NamedIndividual IRI="#terBook"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasReason"/>
+        <NamedIndividual IRI="#teste1"/>
+        <NamedIndividual IRI="#multiAgentOrientedProgramming"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasReason"/>
+        <NamedIndividual IRI="#teste1"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasReason"/>
+        <NamedIndividual IRI="#transferBook"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPrice"/>
+        <NamedIndividual IRI="#multiAgentOrientedProgramming"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">249.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasTitle"/>
+        <NamedIndividual IRI="#multiAgentOrientedProgramming"/>
+        <Literal>Multi-Agent Oriented Programming - Programming Multi-Agent Systems Using JaCaMo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasPrice"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double">100.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasTitle"/>
+        <NamedIndividual IRI="#multiAgentSystems"/>
+        <Literal>multiAgentSystems</Literal>
+    </DataPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasOwner"/>
+        <ObjectProperty IRI="#isOwnerOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <ObjectProperty IRI="#isPurposeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasStatus"/>
+        <ObjectProperty IRI="#isStatusOf"/>
+    </InverseObjectProperties>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#hasStatus"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#isStatusOf"/>
+    </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#brings"/>
+        <Class IRI="#Have"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasOwner"/>
+        <Class IRI="#Product"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <Class IRI="#Status-Function"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasReason"/>
+        <Class IRI="#TransferBook"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasReceiver"/>
+        <Class IRI="#TransferBook"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasStatus"/>
+        <Class IRI="#Status-Function"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haveProduct"/>
+        <Class IRI="#Have"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#brings"/>
+        <Class IRI="#Product"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasOwner"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <Class IRI="#Purpose"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasReason"/>
+        <Class IRI="#Book"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasReceiver"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasStatus"/>
+        <Class IRI="#Status-Function"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haveProduct"/>
+        <Class IRI="#Product"/>
+    </ObjectPropertyRange>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#brings"/>
+        <ObjectProperty IRI="#haveProduct"/>
+    </DisjointObjectProperties>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasPrice"/>
+        <Class IRI="#Product"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasTitle"/>
+        <Class IRI="#Product"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasValue"/>
+        <Class IRI="#TransferBook"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasPrice"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasTitle"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasValue"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Book"/>
+                <Variable IRI="urn:swrl:var#B"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasOwner"/>
+                <Variable IRI="urn:swrl:var#B"/>
+                <Variable IRI="urn:swrl:var#O"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasReason"/>
+                <Variable IRI="urn:swrl:var#T"/>
+                <Variable IRI="urn:swrl:var#B"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#TransferBook"/>
+                <Variable IRI="urn:swrl:var#T"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasReceiver"/>
+                <Variable IRI="urn:swrl:var#T"/>
+                <Variable IRI="urn:swrl:var#O"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Book"/>
+                <Variable IRI="urn:swrl:var#B"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasPrice"/>
+                <Variable IRI="urn:swrl:var#B"/>
+                <Variable IRI="urn:swrl:var#P"/>
+            </DataPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasReason"/>
+                <Variable IRI="urn:swrl:var#T"/>
+                <Variable IRI="urn:swrl:var#B"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#TransferBook"/>
+                <Variable IRI="urn:swrl:var#T"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasValue"/>
+                <Variable IRI="urn:swrl:var#T"/>
+                <Variable IRI="urn:swrl:var#P"/>
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

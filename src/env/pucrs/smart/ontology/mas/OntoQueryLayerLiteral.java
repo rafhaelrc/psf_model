@@ -50,7 +50,7 @@ public class OntoQueryLayerLiteral {
 	public OntoQueryLayer getQuery() {
 		return this.ontoQuery;
 	}
-
+	
 	public static String removeAccents(String str) {
 		str = Normalizer.normalize(str, Normalizer.Form.NFD);
 		str = str.replaceAll("[^\\p{ASCII}]", "");
@@ -63,6 +63,45 @@ public class OntoQueryLayerLiteral {
 		return str;
 	}
 
+	/**
+	 * 
+	 * @param predicate
+	 * @return set that contains the predicate. Position[0] is the functor and from the position[1] are the terms.
+	 */
+	public static ArrayList<String> convertStringOfPredicateInSet(String predicate) {
+		//System.out.println("String Predicate: " + predicate);
+		String functor = "";
+		String term1 = "";
+		String term2 = "";
+		ArrayList<String> setPredicate = new ArrayList<>();
+		
+		
+		if(predicate.contains(",")) { // Relation Predicate eg. mae(maria,rafhael). 
+			String[] words = predicate.split("\\(");
+			functor = words[0];
+			String[] args = words[1].split(",");
+			term1 = args[0];
+			term2 = args[1];
+			term2 = term2.replace(")", "");
+			term2 = term2.replace(" ", "");
+			setPredicate.add(functor);
+			setPredicate.add(term1);
+			setPredicate.add(term2);
+		}
+		if(!predicate.contains(",")) { // property predicate  eg. book(bookA) // tem que testar essa segunda parte
+			String[] words = predicate.split("\\(");
+			functor = words[0];
+			term1 = words[1];
+			term1 = term1.replace(")", "");
+			term1 = term1.replace(" ", "");
+			setPredicate.add(functor);
+			setPredicate.add(term1);
+		}
+		
+		return setPredicate;
+	}
+	
+	
 	public List<Object> getClassNames() {
 		List<Object> classNames = new ArrayList<Object>();
 		try {
@@ -451,9 +490,9 @@ public class OntoQueryLayerLiteral {
 	}
 
 	/**
-	 * Por que deixar minusculo?
-	 * @param individual
-	 * @return
+	 * Method that returns the name of the class that individual pertains.
+	 * @param OWLIndividual
+	 * @return name of the class that individual pertains.
 	 */
 	public String getClassOfTheInstanceAndReturnClass(OWLNamedIndividual individual) {
 
@@ -468,7 +507,9 @@ public class OntoQueryLayerLiteral {
 				/*return owlClass.getIRI().getFragment().substring(0, 1).toLowerCase()
 						+ owlClass.getIRI().getFragment().substring(1);
 						*/
-				return owlClass.getIRI().getShortForm();
+				if(!owlClass.getIRI().getShortForm().equalsIgnoreCase("Thing")) {
+					return owlClass.getIRI().getShortForm();
+				} 
 			}
 		}
 		return null;
@@ -671,4 +712,59 @@ public class OntoQueryLayerLiteral {
 		}
 		return false;
 	}
+	
+	
+	
+	
+/**
+ * 	Check if there is a relationship between domain and range. if true, return the name of the relation.
+ * @param domain
+ * @param range
+ * @return name of relationship between domain and range
+ */
+public String nameObjectPropertyRelationBetweenDomainAndRange(String domain, String range) {
+		
+		OWLDataFactory dataFactory = ontoQuery.getOntology().getOntology().getOWLOntologyManager().getOWLDataFactory();
+		IRI baseIRI = ontoQuery.getOntology().getOntology().getOntologyID().getDefaultDocumentIRI().get(); //
+
+		OWLNamedIndividual owlDomain = dataFactory
+				.getOWLNamedIndividual(IRI.create((String) ((Object) baseIRI + "#" + domain)));
+		
+		OWLNamedIndividual owlRange = dataFactory
+				.getOWLNamedIndividual(IRI.create((String) ((Object) baseIRI + "#" + range)));
+
+		ontoQuery.getOntology().getReasoner().getPrecomputableInferenceTypes();
+
+		for (OWLObjectPropertyAssertionAxiom op : ontoQuery.getOntology().getOntology()
+				.getAxioms(AxiomType.OBJECT_PROPERTY_ASSERTION)) {
+			if (op.getSubject().asOWLNamedIndividual().equals(owlDomain) & 
+				op.getObject().asOWLNamedIndividual().equals(owlRange)) {
+				return op.getProperty().getNamedProperty().getIRI().getShortForm();
+				
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Method that gets the purpose associated to the individual that represents a state of the system. 
+	 * the name of relation that there is between individualState and purpose is irrelevant.
+	 * @param individualState
+	 * @return string purpose
+	 */
+	public ArrayList<String> getPurposesByState(String individualState) {
+		ArrayList<String> purposes = new ArrayList<>();
+		for (OWLObjectPropertyAssertionAxiom op : ontoQuery.getOntology().getOntology()
+				.getAxioms(AxiomType.OBJECT_PROPERTY_ASSERTION)) {
+			OWLIndividual individualDomProv 	= op.getSubject();
+			if(individualDomProv.asOWLNamedIndividual().getIRI().getShortForm().equalsIgnoreCase(individualState)) {
+				purposes.add(op.getObject().asOWLNamedIndividual().getIRI().getShortForm());
+			}
+		}
+		return purposes;
+	}
+	
+	
+	
+	
 }

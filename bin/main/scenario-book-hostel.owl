@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation#"
+     xml:base="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-donation"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:book-hostel="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#"
+     xmlns:social_ontology="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#hasFunction -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/social_ontology#hasFunction"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#hasOwner -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#hasOwner">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#isOwnerOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Product"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#hasPurpose -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#hasPurpose">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#isPurposeOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Status-Function"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Purpose"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#hasStatus -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#hasStatus">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#isStatusOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Status-Function"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Status-Function"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#haveBook -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#haveBook">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Have"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Book"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#isOwnerOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#isOwnerOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#isPurposeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#isPurposeOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#isStatusOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#isStatusOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Book -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Book">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Have -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Have">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Purpose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#PhysicalAction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#PhysicalAction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Product -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Product"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Purpose -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Purpose"/>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#PutBookOnShelf -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#PutBookOnShelf">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#PhysicalAction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Replace -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Replace">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Status-Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Status-Function -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Status-Function"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#haveBook -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#haveBook">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Have"/>
+        <book-hostel:haveBook rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#multiAgentSystems"/>
+        <book-hostel:isPurposeOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#replace"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#multiAgentSystems -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#multiAgentSystems">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Book"/>
+        <book-hostel:hasOwner rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#tom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#putBookOnShelf -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#putBookOnShelf">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#PutBookOnShelf"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#replace -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#replace">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Replace"/>
+        <book-hostel:hasPurpose rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#haveBook"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#tom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#tom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#Person"/>
+        <book-hostel:isOwnerOf rdf:resource="http://www.semanticweb.org/rafhaelrc/ontologies/2020/10/book-hostel#multiAgentSystems"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

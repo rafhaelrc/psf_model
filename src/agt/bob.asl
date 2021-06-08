@@ -8,14 +8,30 @@
  // plan for different purposes and same scenario. 
 
 
++!percorreList([]).
+
++!percorreList([H|T])
+<-
+	+H;
+	.print("Purpose: ", H);
+	!percorreList(T);
+	.
+
+
+
 +!isOwnerOf(Owner, Product) 
- <- .print("Teste");
- 	.print("Owner is: " , Owner);
+ <- .print("Owner is: " , Owner);
  	.print("Product is: " , Product);
  	// isPurposeofStatusFunction(Purpose, Product, NameStatusFunction);
- 	isPurposeOfStatusFunction(State, NamePurpose); // criar uma nova função aqui
- .
+ 	
+ 	isPurposeOfState("isOwnerOf(joao, bookA)", NamePurpose);
+ 	//isPurposeOfSF(NamePurpose, NameStatusFunction);
+ 	!percorreList(NamePurpose);
+ 	.
 
+
+
+/* 
 
 +!haveBook(Product)
 	<- 
@@ -27,6 +43,7 @@
 	!commonPurpose("haveBook", Product);
 	.
 
+*/
 //*/
 
 

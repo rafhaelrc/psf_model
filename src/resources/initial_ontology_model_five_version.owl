@@ -101,6 +101,9 @@
     <Declaration>
         <NamedIndividual IRI="#stateA"/>
     </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#stateB"/>
+    </Declaration>
     <SubClassOf>
         <Class IRI="#Book"/>
         <Class IRI="#Product"/>
@@ -129,10 +132,19 @@
         <Class IRI="#State"/>
         <NamedIndividual IRI="#stateA"/>
     </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#State"/>
+        <NamedIndividual IRI="#stateB"/>
+    </ClassAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#participates_in"/>
         <NamedIndividual IRI="#bookA"/>
         <NamedIndividual IRI="#stateA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#participates_in"/>
+        <NamedIndividual IRI="#bookA"/>
+        <NamedIndividual IRI="#stateB"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isOwnerOf"/>
@@ -145,6 +157,11 @@
         <NamedIndividual IRI="#stateA"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#participates_in"/>
+        <NamedIndividual IRI="#joao"/>
+        <NamedIndividual IRI="#stateB"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPurpose"/>
         <NamedIndividual IRI="#pay"/>
         <NamedIndividual IRI="#purposeA"/>
@@ -153,6 +170,16 @@
         <ObjectProperty IRI="#hasConsequence"/>
         <NamedIndividual IRI="#purposeA"/>
         <NamedIndividual IRI="#stateA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConsequenceOf"/>
+        <NamedIndividual IRI="#stateA"/>
+        <NamedIndividual IRI="#purposeA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isConsequenceOf"/>
+        <NamedIndividual IRI="#stateB"/>
+        <NamedIndividual IRI="#purposeA"/>
     </ObjectPropertyAssertion>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasConsequence"/>

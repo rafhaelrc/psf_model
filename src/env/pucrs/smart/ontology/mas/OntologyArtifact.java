@@ -1,6 +1,7 @@
 package pucrs.smart.ontology.mas;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -14,8 +15,10 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyDomainAxiom;
+import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -232,6 +235,7 @@ public class OntologyArtifact extends Artifact {
 		dataPropertyNames.set(names.toArray(new Literal[names.size()]));
 	}
 
+	
 	/**
 	 * Method that:
 	 * 1) Verify if domain(purpose) is an individual
@@ -371,7 +375,7 @@ public class OntologyArtifact extends Artifact {
 
 	/**
 	 * Metodo que a partir do dominio monta um literal com todas as propriedades de dados que tem como dominio o domain
-	 * O literal tem a seguinte fÃ³rmula: predicado(domain, range), range = um tipo primitivo de dado
+	 * O literal tem a seguinte formula: predicado(domain, range), range = um tipo primitivo de dado
 	 * @return A list of ({@link OWLDataProperty}).
 	 */
 	@OPERATION
@@ -461,6 +465,155 @@ public class OntologyArtifact extends Artifact {
 	@OPERATION
 	void getRangeByDataPropertyandIndividual(String individual, String dataProperty, OpFeedbackParam<String> nameRange) {
 		nameRange.set(queryEngine.getRangeByDataPropertyandIndividual(individual, dataProperty).toString());
+	}
+	
+	
+	
+	//OpFeedbackParam<Literal[]>
+	/**
+	 * Method responsible for get the string state (that represents a predicate)  and
+	 * 1) convert the string state in a arrayList of strings where
+	 * 	1.1 space[0] is the functor
+	 *  1.2 space[1] is the first term and if there is
+	 *  1.3 space[2] is the second term
+	 * 2) check if the terms are individuals that pertains any class of the ontology
+	 * 3) get the objectPropertyAxioms (relations) that there are in the ontology where the domain is the term1 and the range is any 
+	 * term that pertains to State class. e.g. joao pertains_in stateA
+	 * 4) get the objectPropertyAxioms (relations) that there are in the ontology where the domain is the term2 and the range is any 
+	 * term that pertains to State class. e.g. bookA pertains_in stateA
+	 * 5) check if there are relations between the terms found in the step 3 and 4. E.g. joao isOwnerOf bookA if there are,
+	 * 6) check if term1 is related to the same state that term2 is related and store the state. 
+	 * e.g. joao pertain_in stateA
+	 * e.g. bookA pertain_in stateA 
+	 * In this case, store stateA.
+	 * 7) 
+	 * @param state
+	 * @return purpose
+	 */
+	@OPERATION 
+	void isPurposeOfState(String state, OpFeedbackParam<String[]> purposes){
+		// state = isOwner(joao, bookA)
+		
+		OWLDataFactory dataFactory = onto.getOntology().getOWLOntologyManager().getOWLDataFactory();
+		IRI baseIRI = onto.getOntology().getOntologyID().getDefaultDocumentIRI().get();
+		
+		
+		ArrayList<String> predicate = queryEngine.convertStringOfPredicateInSet(state);
+		
+		if(predicate.size() == 3) { // depois colocar aqui quando for predicado de relação 
+			
+		}
+		
+		//predicate.set(1, "teste");
+		
+		OWLNamedIndividual owlIndividualDomain = dataFactory.getOWLNamedIndividual(IRI.create((String)
+				   ((Object) baseIRI + "#" + predicate.get(1))));
+
+		OWLNamedIndividual owlIndividualRange = dataFactory.getOWLNamedIndividual(IRI.create((String)
+				   ((Object) baseIRI + "#" + predicate.get(2))));
+
+		// first verification
+		boolean domainIsAnIndividual = queryEngine.getClassOfTheInstanceAndReturnClass(owlIndividualDomain) != null ? true : false;
+		
+		// second verification
+		boolean rangeIsAnIndividual = queryEngine.getClassOfTheInstanceAndReturnClass(owlIndividualRange) != null ? true : false;
+
+		if(domainIsAnIndividual && rangeIsAnIndividual) { // If both terms are individuals in the ontology.
+			
+			ArrayList<OWLObjectPropertyAssertionAxiom> axiomsTerm1AndState = new ArrayList<>();
+			ArrayList<OWLObjectPropertyAssertionAxiom> axiomsTerm2AndState = new ArrayList<>();
+			
+			// Percorre todos os axiomas de relações do tipo object Property na ontologia
+			for (OWLObjectPropertyAssertionAxiom op : queryEngineLayer.getOntology().getOntology()
+					.getAxioms(AxiomType.OBJECT_PROPERTY_ASSERTION)) {
+				
+				OWLIndividual individualDomProv 	= op.getSubject();
+				
+				// participates_in(joao, stateA)
+				// participates_in(joao, stateB)
+				
+				// Ver se o primeiro termo tem alguma ligação com algum individuo (range) que pertence a classe State.
+				if(individualDomProv.asOWLNamedIndividual().getIRI().getShortForm().equalsIgnoreCase(predicate.get(1))) {
+					// ver se o range é um individuo da classe state
+					String nameClassRange = queryEngine.getClassOfTheInstanceAndReturnClass(op.getObject().asOWLNamedIndividual());
+					if(nameClassRange.equalsIgnoreCase("State")) {
+						axiomsTerm1AndState.add(op);
+					}
+				}
+				if(individualDomProv.asOWLNamedIndividual().getIRI().getShortForm().equalsIgnoreCase(predicate.get(2))) {
+					
+					String nameClassRange = queryEngine.getClassOfTheInstanceAndReturnClass
+										    (op.getObject().asOWLNamedIndividual());
+					
+					if(nameClassRange.equalsIgnoreCase("State")) {
+						axiomsTerm2AndState.add(op);
+					}
+				}
+			}
+			
+			
+			// Percorrer axiomas 1 e 2 para ver se existe alguma relação entre eles
+			ArrayList<String> states = new ArrayList<>();
+			for(OWLObjectPropertyAssertionAxiom axterm1 : axiomsTerm1AndState) {
+				for(OWLObjectPropertyAssertionAxiom axterm2 : axiomsTerm2AndState) {
+					/**
+					 * 1) Existe uma relação entre o  term1 e o term2
+					 * 2) se term1 está relacionado ao mesmo estado que o term2
+					 */
+					if(queryEngine.nameObjectPropertyRelationBetweenDomainAndRange
+					  (axterm1.getSubject().asOWLNamedIndividual().getIRI().getShortForm(),
+					   axterm2.getSubject().asOWLNamedIndividual().getIRI().getShortForm()) != null &&
+					   axterm1.getObject() == axterm2.getObject()) {
+						states.add(axterm1.getObject().asOWLNamedIndividual().getIRI().getShortForm());
+					}
+				}
+			}
+			HashSet<String> setPurposes = new HashSet<>(); // it not accept duplicate values
+			for(String statee : states) {
+				for(String purposee : queryEngine.getPurposesByState(statee)) {
+					setPurposes.add(purposee);
+				}
+			}
+			/*
+			for(String pr : purposes) {
+				System.out.println("Purpose: " + pr);
+			}
+			purposes.add("");
+			System.out.println(purposes.size());
+			*/
+			
+			String arr[] = new String[setPurposes.size()];
+			int i=0;
+	        
+	        // iterating over the hashset
+	        for(String ele: setPurposes){
+	          arr[i] = ele;
+	          i++;
+	        }
+			
+	        for (int j = 0; j < arr.length; j++) {
+				System.out.println("position: " + j);
+				System.out.println("value: " + arr[j]);
+			}
+			
+			purposes.set(arr);
+			
+			
+		
+		}
+		else {
+			System.out.println("An term is not an individual");
+		}
+	}
+	
+	
+	@OPERATION
+	void isPurposeOfSF(String[] purposes, OpFeedbackParam<String> statusFunctionName) {
+	
+		for(String purpose : purposes) {
+			System.out.println("Purpose: " + purpose);
+		}
+		
 	}
 
 }
