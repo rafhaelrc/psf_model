@@ -582,7 +582,8 @@ public class OntologyArtifact extends Artifact {
 			System.out.println(purposes.size());
 			*/
 			
-			String arr[] = new String[setPurposes.size()];
+			//String arr[] = new String[setPurposes.size()];
+			String arr[] = new String[setPurposes.size()+1];
 			int i=0;
 	        
 	        // iterating over the hashset
@@ -591,10 +592,12 @@ public class OntologyArtifact extends Artifact {
 	          i++;
 	        }
 			
-	        for (int j = 0; j < arr.length; j++) {
-				System.out.println("position: " + j);
-				System.out.println("value: " + arr[j]);
+	        System.out.println("Tamanho vetor: " + arr.length);
+			arr[1] = "purposeB"; 
+			for (String arg : arr) {
+				System.out.println("value: " + arg);
 			}
+			
 			
 			purposes.set(arr);
 			

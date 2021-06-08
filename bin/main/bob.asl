@@ -12,7 +12,10 @@
 
 +!percorreList([H|T])
 <-
-	+H;
+	//+H
+	.term2string(Te,H);
+	//.type(H,string);
+	+Te;
 	.print("Purpose: ", H);
 	!percorreList(T);
 	.
