@@ -172,6 +172,11 @@
         <NamedIndividual IRI="#stateA"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPurposeOf"/>
+        <NamedIndividual IRI="#purposeA"/>
+        <NamedIndividual IRI="#pay"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isConsequenceOf"/>
         <NamedIndividual IRI="#stateA"/>
         <NamedIndividual IRI="#purposeA"/>

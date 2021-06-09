@@ -13,9 +13,11 @@
 +!percorreList([H|T])
 <-
 	//+H
-	.term2string(Te,H);
+	//.term2string(Te,H);
+	
 	//.type(H,string);
-	+Te;
+	
+	//+Te;
 	.print("Purpose: ", H);
 	!percorreList(T);
 	.
@@ -28,8 +30,12 @@
  	// isPurposeofStatusFunction(Purpose, Product, NameStatusFunction);
  	
  	isPurposeOfState("isOwnerOf(joao, bookA)", NamePurpose);
- 	//isPurposeOfSF(NamePurpose, NameStatusFunction);
+ 	if(.list(NamePurpose)){
+ 		.print("יייי");
+ 	}
  	!percorreList(NamePurpose);
+ 	isPurposeOfSF(NamePurpose, NameStatusFunction);
+ 	
  	.
 
 

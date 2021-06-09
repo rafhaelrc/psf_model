@@ -582,8 +582,8 @@ public class OntologyArtifact extends Artifact {
 			System.out.println(purposes.size());
 			*/
 			
-			//String arr[] = new String[setPurposes.size()];
-			String arr[] = new String[setPurposes.size()+1];
+			String arr[] = new String[setPurposes.size()];
+			//String arr[] = new String[setPurposes.size()+1];
 			int i=0;
 	        
 	        // iterating over the hashset
@@ -591,31 +591,30 @@ public class OntologyArtifact extends Artifact {
 	          arr[i] = ele;
 	          i++;
 	        }
-			
-	        System.out.println("Tamanho vetor: " + arr.length);
-			arr[1] = "purposeB"; 
-			for (String arg : arr) {
-				System.out.println("value: " + arg);
-			}
-			
-			
+	        //arr[i] = "purposeB";
 			purposes.set(arr);
-			
-			
-		
 		}
 		else {
 			System.out.println("An term is not an individual");
 		}
 	}
 	
+	/**
+	 * 
+	 * @param List of String 
+	 * @param statusFunctionName
+	 */
 	
 	@OPERATION
-	void isPurposeOfSF(String[] purposes, OpFeedbackParam<String> statusFunctionName) {
-	
-		for(String purpose : purposes) {
-			System.out.println("Purpose: " + purpose);
+	void isPurposeOfSF(Object[] purpose, OpFeedbackParam<String> statusFunctionName) {
+		// List de status function relacionada aos propositos.
+		for(Object ob : purpose) {
+			System.out.println(String.valueOf(ob));
+			queryEngine.getStatusFunctionByPurpose(String.valueOf(ob));
+			
 		}
+		
+	
 		
 	}
 

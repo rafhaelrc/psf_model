@@ -62,6 +62,22 @@ public class OntoQueryLayerLiteral {
 		str = removeAccents(str.substring(0, 1).toLowerCase() + str.substring(1));
 		return str;
 	}
+	
+	
+	/**
+	 * 
+	 * @return an arraylist of elements not duplicate.
+	 */
+	public ArrayList<String> removeDuplicateElementsOfAnArrayofString(ArrayList<String> statusFunctions){
+		ArrayList<String> newElements = new ArrayList<>();
+		for(String element : statusFunctions) {
+			if(!newElements.contains(element)) {
+				newElements.add(element);
+			}
+		}
+		return newElements;
+	}
+	
 
 	/**
 	 * 
@@ -757,13 +773,53 @@ public String nameObjectPropertyRelationBetweenDomainAndRange(String domain, Str
 		for (OWLObjectPropertyAssertionAxiom op : ontoQuery.getOntology().getOntology()
 				.getAxioms(AxiomType.OBJECT_PROPERTY_ASSERTION)) {
 			OWLIndividual individualDomProv 	= op.getSubject();
-			if(individualDomProv.asOWLNamedIndividual().getIRI().getShortForm().equalsIgnoreCase(individualState)) {
+			if(individualDomProv.asOWLNamedIndividual().getIRI().getShortForm().equals(individualState)) {
 				purposes.add(op.getObject().asOWLNamedIndividual().getIRI().getShortForm());
 			}
 		}
 		return purposes;
 	}
 	
+	
+	
+	/**
+	 * Method that gets the status-function associated to the individual that represents a purpose of the system. 
+	 * the name of relation that there is between purpose and status-function is irrelevant.
+	 * The method gets statusFunctions that are domain or range of the relations.
+	 * In the final, another method retires the duplicate elements of the array.
+	 * @param individualState
+	 * @return string purpose
+	 */
+	public ArrayList<String> getStatusFunctionByPurpose(String purpose) {
+		ArrayList<String> statusFunctions = new ArrayList<>();
+		
+		
+		for (OWLObjectPropertyAssertionAxiom op : ontoQuery.getOntology().getOntology()
+				.getAxioms(AxiomType.OBJECT_PROPERTY_ASSERTION)) {
+			OWLIndividual individualDomProv 	= op.getSubject();
+			OWLIndividual individualRangeProv 	= op.getObject();
+			
+			// add se o elemento for da classe SF
+			
+			// busca o range da relação isPurposeOf que é = SF
+			if(individualDomProv.asOWLNamedIndividual().getIRI().getShortForm().equals(purpose)) {
+				String nameClassRange = this.getClassOfTheInstanceAndReturnClass(op.getObject().asOWLNamedIndividual());
+				if(nameClassRange.equals("Status-Function")) {
+					statusFunctions.add(op.getObject().asOWLNamedIndividual().getIRI().getShortForm());
+				}
+			}
+			
+			// se o purpose for o range.. preciso pegar o subject dessa relação = SF
+			if(individualRangeProv.asOWLNamedIndividual().getIRI().getShortForm().equals(purpose)) {
+				String nameClassRange = this.getClassOfTheInstanceAndReturnClass(op.getSubject().asOWLNamedIndividual());
+				if(nameClassRange.equals("Status-Function")) {
+					statusFunctions.add(op.getSubject().asOWLNamedIndividual().getIRI().getShortForm());
+				}
+			}
+		}
+		statusFunctions = removeDuplicateElementsOfAnArrayofString(statusFunctions);
+		return statusFunctions;
+	}
 	
 	
 	
