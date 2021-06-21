@@ -31,18 +31,18 @@ public class OntoQueryLayer {
         this.ontology.setOntology(OwlOntoLayer.loadOntology(IRI.create(new File(filePath))));
     }
 
-    private OWLClass getOWLClass(String className) {
+    public OWLClass getOWLClass(String className) {
         OWLDataFactory factory = this.ontology.getOntology().getOWLOntologyManager().getOWLDataFactory();
         String iri = this.ontology.getOntologyIRI() + "#" + className;
         return factory.getOWLClass(iri);
     }
 
-    private OWLNamedIndividual getOWLIndividual(String individualName) {
+    public OWLNamedIndividual getOWLIndividual(String individualName) {
         OWLDataFactory factory = this.ontology.getOntology().getOWLOntologyManager().getOWLDataFactory();
         return factory.getOWLNamedIndividual(this.ontology.getOntologyIRI() + "#" + individualName);
     }
 
-    private OWLObjectProperty getOWLObjectProperty(String propertyName) {
+    public OWLObjectProperty getOWLObjectProperty(String propertyName) {
         OWLDataFactory factory = this.ontology.getOntology().getOWLOntologyManager().getOWLDataFactory();
         return factory.getOWLObjectProperty(this.ontology.getOntologyIRI() + "#" + propertyName);
     }

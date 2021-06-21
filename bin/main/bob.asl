@@ -30,13 +30,24 @@
  	// isPurposeofStatusFunction(Purpose, Product, NameStatusFunction);
  	
  	isPurposeOfState("isOwnerOf(joao, bookA)", NamePurpose);
+ 	
+ 	
+ 	/* 
  	if(.list(NamePurpose)){
  		.print("יייי");
  	}
  	!percorreList(NamePurpose);
  	isPurposeOfSF(NamePurpose, NameStatusFunction);
- 	
- 	.
+ 	//.term2string(Te,NameStatusFunction);
+	//!searchActionCountAsStatus(Te);
+	*/
+  	.
+	
++!searchActionCountAsStatus(Status) : constitutive_rule(Action, Status,_,_)
+	<-
+	.print("acao associada ao Status: ", Action);
+	Action;
+	.
 
 
 

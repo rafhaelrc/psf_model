@@ -47,6 +47,12 @@ public class OntoQueryLayerString{
         }
         return annotationProperties;
     }
+    
+    
+    
+    
+    
+    
 
 }
 
