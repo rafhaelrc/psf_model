@@ -6,9 +6,10 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_5">
-    <Prefix name="" IRI="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_4"/>
+    <Prefix name="" IRI="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_5"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="sf5" IRI="http://www.semanticweb.org/rafhaelrc/ontologies/2020/8/semantic_sf_5"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
@@ -18,10 +19,16 @@
         <Class IRI="#Book"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Parameter"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Person"/>
     </Declaration>
     <Declaration>
         <Class IRI="#PhysicalAction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Predicate"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Product"/>
@@ -42,10 +49,16 @@
         <ObjectProperty IRI="#brings"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#composesIn"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasConsequence"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasOwner"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasParameter"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasPurpose"/>
@@ -60,7 +73,7 @@
         <ObjectProperty IRI="#hasStatus"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#has_participant"/>
+        <ObjectProperty IRI="#isComposedOf"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isConsequenceOf"/>
@@ -69,13 +82,13 @@
         <ObjectProperty IRI="#isOwnerOf"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#isParameterOf"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#isPurposeOf"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isStatusOf"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#participates_in"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasPrice"/>
@@ -90,6 +103,9 @@
         <NamedIndividual IRI="#bookA"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#isOwnerOf"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#joao"/>
     </Declaration>
     <Declaration>
@@ -104,6 +120,9 @@
     <Declaration>
         <NamedIndividual IRI="#stateB"/>
     </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="owl:position"/>
+    </Declaration>
     <SubClassOf>
         <Class IRI="#Book"/>
         <Class IRI="#Product"/>
@@ -113,8 +132,20 @@
         <Class IRI="#PhysicalAction"/>
     </SubClassOf>
     <ClassAssertion>
-        <Class IRI="#Product"/>
+        <Class IRI="#Book"/>
         <NamedIndividual IRI="#bookA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Parameter"/>
+        <NamedIndividual IRI="#bookA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Predicate"/>
+        <NamedIndividual IRI="#isOwnerOf"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Parameter"/>
+        <NamedIndividual IRI="#joao"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Person"/>
@@ -137,29 +168,36 @@
         <NamedIndividual IRI="#stateB"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#participates_in"/>
-        <NamedIndividual IRI="#bookA"/>
+        <ObjectProperty IRI="#composesIn"/>
+        <NamedIndividual IRI="#isOwnerOf"/>
         <NamedIndividual IRI="#stateA"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#participates_in"/>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="owl:position"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasParameter"/>
+        <NamedIndividual IRI="#isOwnerOf"/>
         <NamedIndividual IRI="#bookA"/>
-        <NamedIndividual IRI="#stateB"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>só pra encomodar.</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="owl:position"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasParameter"/>
+        <NamedIndividual IRI="#isOwnerOf"/>
+        <NamedIndividual IRI="#joao"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isOwnerOf"/>
         <NamedIndividual IRI="#joao"/>
         <NamedIndividual IRI="#bookA"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#participates_in"/>
-        <NamedIndividual IRI="#joao"/>
-        <NamedIndividual IRI="#stateA"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#participates_in"/>
-        <NamedIndividual IRI="#joao"/>
-        <NamedIndividual IRI="#stateB"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPurpose"/>
@@ -186,6 +224,10 @@
         <NamedIndividual IRI="#stateB"/>
         <NamedIndividual IRI="#purposeA"/>
     </ObjectPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#composesIn"/>
+        <ObjectProperty IRI="#isComposedOf"/>
+    </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasConsequence"/>
         <ObjectProperty IRI="#isConsequenceOf"/>
@@ -195,16 +237,16 @@
         <ObjectProperty IRI="#isOwnerOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
+        <ObjectProperty IRI="#hasParameter"/>
+        <ObjectProperty IRI="#isParameterOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="#hasPurpose"/>
         <ObjectProperty IRI="#isPurposeOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasStatus"/>
         <ObjectProperty IRI="#isStatusOf"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#has_participant"/>
-        <ObjectProperty IRI="#participates_in"/>
     </InverseObjectProperties>
     <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#hasStatus"/>
@@ -235,6 +277,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasStatus"/>
         <Class IRI="#Status-Function"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isComposedOf"/>
+        <Class IRI="#State"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#brings"/>
@@ -265,8 +311,8 @@
         <Class IRI="#Status-Function"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#participates_in"/>
-        <Class IRI="#State"/>
+        <ObjectProperty IRI="#isComposedOf"/>
+        <Class IRI="#Predicate"/>
     </ObjectPropertyRange>
     <DataPropertyDomain>
         <DataProperty IRI="#hasPrice"/>
@@ -350,6 +396,16 @@
             </DataPropertyAtom>
         </Head>
     </DLSafeRule>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:position"/>
+        <IRI>#bookA</IRI>
+        <Literal xml:lang="en">second parameter of isOwner predicate.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:position"/>
+        <IRI>#joao</IRI>
+        <Literal xml:lang="en">first parameter of isOwner predicate.</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 

@@ -21,6 +21,7 @@ import jason.asSyntax.Literal;
 import pucrs.smart.ontology.OntoQueryLayer;
 import pucrs.smart.ontology.OwlOntoLayer;
 import pucrs.smart.ontology.oo.OntoQueryLayerBoolean;
+import pucrs.smart.ontology.oo.OntoQueryLayerString;
 import pucrs.smart.ontology.oo.Util;
 
 
@@ -29,6 +30,7 @@ public class OntologyArtifact extends Artifact {
 
 	private OwlOntoLayer onto = null;
 	private OntoQueryLayerLiteral queryEngine;
+	private OntoQueryLayerString queryEngineString;
 	private OntoQueryLayerBoolean queryEngineBoolean;
 	private OntoQueryLayer queryEngineLayer;
 
@@ -47,6 +49,7 @@ public class OntologyArtifact extends Artifact {
 
 			queryEngine = new OntoQueryLayerLiteral(this.onto);
 			queryEngineLayer = new OntoQueryLayer(this.onto);
+			queryEngineString = new OntoQueryLayerString(this.onto);
 			queryEngineBoolean = new OntoQueryLayerBoolean(this.onto);
 
 			logger.info("Ontology ready!");
@@ -207,7 +210,10 @@ public class OntologyArtifact extends Artifact {
 	
 	@OPERATION
 	void isPurposeOfState(String predicate, OpFeedbackParam<String[]> purposes) {
-		System.out.println(queryEngineBoolean.thereIsAPredicateInOntology(Util.createLiteral(predicate)));
+		Literal predicate2 = Util.createLiteral(predicate);
+		if(queryEngineBoolean.thereIsAPredicateInOntology(predicate2)) {
+			queryEngineString.getStatesByPredicate(predicate2);
+		}
 		
 		
 		//boolean check = queryEngineBoolean.thereIsAPredicate(predicate);
