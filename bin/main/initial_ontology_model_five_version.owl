@@ -49,9 +49,6 @@
         <ObjectProperty IRI="#brings"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#composesIn"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#hasConsequence"/>
     </Declaration>
     <Declaration>
@@ -59,6 +56,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasParameter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPredicate"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasPurpose"/>
@@ -73,9 +73,6 @@
         <ObjectProperty IRI="#hasStatus"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#isComposedOf"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#isConsequenceOf"/>
     </Declaration>
     <Declaration>
@@ -83,6 +80,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isParameterOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPredicateOf"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isPurposeOf"/>
@@ -168,11 +168,6 @@
         <NamedIndividual IRI="#stateB"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#composesIn"/>
-        <NamedIndividual IRI="#isOwnerOf"/>
-        <NamedIndividual IRI="#stateA"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="owl:position"/>
             <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
@@ -183,16 +178,17 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>só pra encomodar.</Literal>
-        </Annotation>
-        <Annotation>
             <AnnotationProperty abbreviatedIRI="owl:position"/>
             <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
         </Annotation>
         <ObjectProperty IRI="#hasParameter"/>
         <NamedIndividual IRI="#isOwnerOf"/>
         <NamedIndividual IRI="#joao"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPredicateOf"/>
+        <NamedIndividual IRI="#isOwnerOf"/>
+        <NamedIndividual IRI="#stateA"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isOwnerOf"/>
@@ -215,6 +211,11 @@
         <NamedIndividual IRI="#pay"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPredicate"/>
+        <NamedIndividual IRI="#stateA"/>
+        <NamedIndividual IRI="#isOwnerOf"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isConsequenceOf"/>
         <NamedIndividual IRI="#stateA"/>
         <NamedIndividual IRI="#purposeA"/>
@@ -224,10 +225,6 @@
         <NamedIndividual IRI="#stateB"/>
         <NamedIndividual IRI="#purposeA"/>
     </ObjectPropertyAssertion>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#composesIn"/>
-        <ObjectProperty IRI="#isComposedOf"/>
-    </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasConsequence"/>
         <ObjectProperty IRI="#isConsequenceOf"/>
@@ -239,6 +236,10 @@
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasParameter"/>
         <ObjectProperty IRI="#isParameterOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasPredicate"/>
+        <ObjectProperty IRI="#isPredicateOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasPurpose"/>
@@ -263,6 +264,10 @@
         <Class IRI="#Product"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPredicate"/>
+        <Class IRI="#State"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasPurpose"/>
         <Class IRI="#Status-Function"/>
     </ObjectPropertyDomain>
@@ -279,8 +284,12 @@
         <Class IRI="#Status-Function"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isComposedOf"/>
+        <ObjectProperty IRI="#isConsequenceOf"/>
         <Class IRI="#State"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPredicateOf"/>
+        <Class IRI="#Predicate"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#brings"/>
@@ -293,6 +302,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasOwner"/>
         <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPredicate"/>
+        <Class IRI="#Predicate"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasPurpose"/>
@@ -311,8 +324,12 @@
         <Class IRI="#Status-Function"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#isComposedOf"/>
-        <Class IRI="#Predicate"/>
+        <ObjectProperty IRI="#isConsequenceOf"/>
+        <Class IRI="#Purpose"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPredicateOf"/>
+        <Class IRI="#State"/>
     </ObjectPropertyRange>
     <DataPropertyDomain>
         <DataProperty IRI="#hasPrice"/>

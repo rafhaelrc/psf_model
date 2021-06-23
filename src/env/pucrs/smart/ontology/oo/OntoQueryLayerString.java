@@ -61,7 +61,7 @@ public class OntoQueryLayerString{
      * @param predicate
      * @return list of strings that contains one or more name of states that are related to the predicate.
      */
-    public List<String> getStatesByPredicate(Literal predicate){
+    public ArrayList<String> getStatesByPredicate(Literal predicate){
     	ArrayList<String> states = new ArrayList<>();
     	OWLNamedIndividual owlIndividualFunctor = ontoQuery.getOWLIndividual(predicate.getFunctor().toString()); //isOwnerOf
 		OWLObjectProperty owlObjectPropertyisPredicateOf = ontoQuery.getOWLObjectProperty("isPredicateOf");
@@ -71,7 +71,7 @@ public class OntoQueryLayerString{
     	
     	for(OWLNamedIndividual inv : rangePredicateRelation){
     		states.add(inv.getIRI().getShortForm());
-    		System.out.println("State chegaaaaando: " + inv.getIRI().getShortForm());
+//    		System.out.println("State chegaaaaando: " + inv.getIRI().getShortForm());
     	}
     	return states;
     }
@@ -79,24 +79,42 @@ public class OntoQueryLayerString{
     
     /**
 	 * Method that gets the purpose associated to the individual that represents a state of the system. 
-	 * the name of relation that there is between individualState and purpose is irrelevant.
 	 * @param individualState
 	 * @return string purpose
 	 */
     
-    /// ESSE METODO TA ERRADO.. FAZER IGUAL AO DE CIMA
 	public ArrayList<String> getPurposesByState(String individualState) {
 		ArrayList<String> purposes = new ArrayList<>();
-		for (OWLObjectPropertyAssertionAxiom op : ontoQuery.getOntology().getOntology()
-				.getAxioms(AxiomType.OBJECT_PROPERTY_ASSERTION)) {
-			OWLIndividual individualDomProv 	= op.getSubject();
-			if(individualDomProv.asOWLNamedIndividual().getIRI().getShortForm().equals(individualState)) {
-				purposes.add(op.getObject().asOWLNamedIndividual().getIRI().getShortForm());
-			}
-		}
+		OWLNamedIndividual owlIndividual = ontoQuery.getOWLIndividual(individualState); //isOwnerOf
+		OWLObjectProperty owlObjectPropertyisConsequenceOf = ontoQuery.getOWLObjectProperty("isConsequenceOf");
+    	
+    	Set<OWLNamedIndividual> rangePredicateRelation =  
+        	    ontoQuery.getOntology().getObjectPropertyValues(owlIndividual, owlObjectPropertyisConsequenceOf);
+    	
+    	for(OWLNamedIndividual inv : rangePredicateRelation){
+    		purposes.add(inv.getIRI().getShortForm());
+    	}
 		return purposes;
 	}
     
+	/**
+	 * 
+	 * @param purpose
+	 * @return
+	 */
+	public ArrayList<String> getStatusFunctionsByPurpose(String purpose) {
+		ArrayList<String> statusFunction = new ArrayList<>();
+		OWLNamedIndividual owlIndividual = ontoQuery.getOWLIndividual(purpose); //isOwnerOf
+		OWLObjectProperty owlObjectPropertyisPurposeOf = ontoQuery.getOWLObjectProperty("isPurposeOf");
+    	
+    	Set<OWLNamedIndividual> rangePredicateRelation =  
+        	    ontoQuery.getOntology().getObjectPropertyValues(owlIndividual, owlObjectPropertyisPurposeOf);
+    	
+    	for(OWLNamedIndividual inv : rangePredicateRelation){
+    		statusFunction.add(inv.getIRI().getShortForm());
+    	}
+		return statusFunction;
+	}
     
     
     

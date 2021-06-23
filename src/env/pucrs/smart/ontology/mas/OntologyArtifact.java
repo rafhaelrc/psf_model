@@ -1,5 +1,6 @@
 package pucrs.smart.ontology.mas;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -207,18 +208,50 @@ public class OntologyArtifact extends Artifact {
 		dataPropertyNames.set(names.toArray(new Literal[names.size()]));
 	}
 	
-	
+	/**
+	 * create a predicate
+	 * check if this predicate there is in the ontology
+	 * if true,
+	 * check if this predicate are related to a state of the system
+	 * if true, 
+	 * get the state
+	 * looking for purposes that are related to state.
+	 * @param predicate
+	 * @param purposes
+	 */
 	@OPERATION
 	void isPurposeOfState(String predicate, OpFeedbackParam<String[]> purposes) {
 		Literal predicate2 = Util.createLiteral(predicate);
+		ArrayList<String> arrayStates;
+		ArrayList<String> arrayPurposes = new ArrayList<>();
+		
 		if(queryEngineBoolean.thereIsAPredicateInOntology(predicate2)) {
-			queryEngineString.getStatesByPredicate(predicate2);
+			arrayStates =  queryEngineString.getStatesByPredicate(predicate2);
+			for (String state : arrayStates) {
+				for(String purpose : queryEngineString.getPurposesByState(state)) {
+					arrayPurposes.add(purpose);
+				}
+			}
 		}
-		
-		
-		//boolean check = queryEngineBoolean.thereIsAPredicate(predicate);
-		//System.out.println("Check.. " + check);
+		purposes.set(Util.convertArrayListOfStringinArrayofString(arrayPurposes));
 	}
-
 	
+	/**
+	 * 
+	 * @param List of String 
+	 * @param statusFunctionName
+	 */
+	
+	@OPERATION
+	void isPurposeOfSF(Object[] purposes, OpFeedbackParam<String[]> statusFunctionNames) {
+		ArrayList<String> statusFunctions = new ArrayList<>();
+		for(Object objPurpose : purposes) {
+			for(String sf : queryEngineString.getStatusFunctionsByPurpose(String.valueOf(objPurpose))) {
+				statusFunctions.add(sf);
+			}
+		}
+		statusFunctionNames.set(Util.convertArrayListOfStringinArrayofString(statusFunctions));
+		
+	}
 }
+
