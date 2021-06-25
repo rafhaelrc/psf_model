@@ -30,24 +30,24 @@
 	//.print("Status: " , H);
 	.term2string(Te,H);
 	!searchActionCountAsStatus(Te);
-	!percorreList(T);
+	//!percorreList(T);
 	.
 
-// hasBook(Product); Product = nome do livro.
-
-//haveBook(Product) // goal
-
-
-+!isOwnerOf(Owner, Product) 
- <- //.print("Owner is: " , Owner);
- 	//.print("Product is: " , Product);
- 	
++!haveBook(Product) 
+ <- 
  	// trocar string por Literal
+ 	.my_name(Agent);
+ 	 
+ 	// Nessa linha que o mapeamento entre o objetivo e o estado do mundo é feito.
+ 	//isPurposeOfState("isOwnerOf(joao,bookA)", NamePurpose); // Predicate has two terms.
  	
- 	isPurposeOfState("isOwnerOf(joao,bookA)", NamePurpose); // Predicate has two terms.
+ 	isPurposeOfState(isOwnerOf(joao, Product), NamePurpose); // Predicate has two terms.
+ 	
+ 	
+ 	
  	//isPurposeOfState("isOwnerOf(bookA, joao)", NamePurpose); // Predicate has two terms.
- 	
  	//isPurposeOfState("holder(bookB)", NamePurpose); // Predicate with one term.
+ 	
  	
  	isPurposeOfSF(NamePurpose, NameStatusFunction);
  	!percorreList(NameStatusFunction);

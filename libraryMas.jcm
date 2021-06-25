@@ -16,7 +16,8 @@ mas libraryMas {
 
     agent bob {
     	//goals: haveBook("multiAgentSystems")
-    	goals: isOwnerOf(joao, bookA)
+    	//goals: isOwnerOf(joao, bookA)
+    	goals: haveBook(bookA)
     	focus: onto_different_intentionality
 		focus: wsp_library.electronic_machine
     }

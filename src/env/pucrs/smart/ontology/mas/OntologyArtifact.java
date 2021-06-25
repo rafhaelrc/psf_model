@@ -1,6 +1,7 @@
 package pucrs.smart.ontology.mas;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -220,10 +221,24 @@ public class OntologyArtifact extends Artifact {
 	 * @param predicate
 	 * @param purposes
 	 */
+	
+	//void isPurposeOfState(String predicate, OpFeedbackParam<String[]> purposes) {
 	@OPERATION
-	void isPurposeOfState(String predicate, OpFeedbackParam<String[]> purposes) {
-		Literal predicate2 = Util.createLiteral(predicate);
-		//Literal predicate2 = (Literal) predicate1;
+	void isPurposeOfState(Object predicate, OpFeedbackParam<String[]> purposes) {
+		System.out.println("Nem cheguei aqui..");
+		
+		//Literal predicate2 = Util.createLiteral(predicate);
+		
+		System.out.println("Literal: " + predicate.toString());
+		
+		Literal predicate2 = Literal.parseLiteral(predicate.toString());
+		
+		System.out.println(predicate2.getFunctor());
+		System.out.println(predicate2.getArity());
+		System.out.println(predicate2.getTerm(0));
+		System.out.println(predicate2.getTerm(1));
+		
+		
 		ArrayList<String> arrayStates;
 		ArrayList<String> arrayPurposes = new ArrayList<>();
 		
