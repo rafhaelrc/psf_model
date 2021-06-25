@@ -18,6 +18,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import cartago.Artifact;
 import cartago.OPERATION;
 import cartago.OpFeedbackParam;
+import jason.asSyntax.ASSyntax;
 import jason.asSyntax.Literal;
 import pucrs.smart.ontology.OntoQueryLayer;
 import pucrs.smart.ontology.OwlOntoLayer;
@@ -222,6 +223,7 @@ public class OntologyArtifact extends Artifact {
 	@OPERATION
 	void isPurposeOfState(String predicate, OpFeedbackParam<String[]> purposes) {
 		Literal predicate2 = Util.createLiteral(predicate);
+		//Literal predicate2 = (Literal) predicate1;
 		ArrayList<String> arrayStates;
 		ArrayList<String> arrayPurposes = new ArrayList<>();
 		
@@ -232,8 +234,12 @@ public class OntologyArtifact extends Artifact {
 					arrayPurposes.add(purpose);
 				}
 			}
+			purposes.set(Util.convertArrayListOfStringinArrayofString(arrayPurposes));
 		}
-		purposes.set(Util.convertArrayListOfStringinArrayofString(arrayPurposes));
+		else {
+			//System.out.println("The terms of the predicate are incorrect.");
+			purposes.set(Util.convertArrayListOfStringinArrayofString(arrayPurposes));
+		}
 	}
 	
 	/**
@@ -251,7 +257,20 @@ public class OntologyArtifact extends Artifact {
 			}
 		}
 		statusFunctionNames.set(Util.convertArrayListOfStringinArrayofString(statusFunctions));
-		
 	}
+	
+	
+//	Method that returns only a Literal.
+//	@OPERATION
+//	void isPurposeOfSF(Object[] purposes, OpFeedbackParam<Literal> statusFunction) {
+//		System.out.println("Size of the list: " + purposes.length);
+//		
+//		for (OWLNamedIndividual individual : queryEngineLayer.getObjectPropertyValues(purposes[0].toString(), "isPurposeOf")) {
+//			Literal L = ASSyntax.createLiteral(individual.getIRI().getFragment());
+//			statusFunction.set(L);
+//		}
+//	} 
+	
+	
 }
 

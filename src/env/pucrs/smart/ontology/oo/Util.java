@@ -114,6 +114,7 @@ public final class Util {
 			Literal l = ASSyntax.createLiteral(words[0], concept);
 			l.delTerm(0); // because functor and first term are equals.
 			words[1] = words[1].replace(")", "");
+			words[1] = removeInicialAndFinalBlankCharacter(words[1]);
 			l.addTerm(ASSyntax.createAtom(words[1]));
 			return l;
 		}

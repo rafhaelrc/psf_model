@@ -9,7 +9,7 @@ agents: buyer.
 
 /*events: pay(X). */
 
-events: pay. 
+events: pay, afford. 
 
 /* states: pay.   play(A,R,G), responsible(G,S), committed(A,Mission,S), achieved(S,G,A), done(S,G,A).*/
 
@@ -23,5 +23,6 @@ constitutive_rules:
 
 /*2: transferBook count-as pay(X).*/
 
-2: transferBook count-as pay. 
+2: transferBook count-as pay.
 
+3: receiveAnything count-as afford. 

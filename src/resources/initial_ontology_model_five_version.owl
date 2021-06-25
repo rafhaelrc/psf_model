@@ -100,7 +100,16 @@
         <DataProperty IRI="#hasValue"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#afford"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#bookA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#bookB"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#holder"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#isOwnerOf"/>
@@ -113,6 +122,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#purposeA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#purposeB"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#stateA"/>
@@ -132,12 +144,28 @@
         <Class IRI="#PhysicalAction"/>
     </SubClassOf>
     <ClassAssertion>
+        <Class IRI="#Status-Function"/>
+        <NamedIndividual IRI="#afford"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Book"/>
         <NamedIndividual IRI="#bookA"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Parameter"/>
         <NamedIndividual IRI="#bookA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Book"/>
+        <NamedIndividual IRI="#bookB"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Parameter"/>
+        <NamedIndividual IRI="#bookB"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Predicate"/>
+        <NamedIndividual IRI="#holder"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Predicate"/>
@@ -160,6 +188,10 @@
         <NamedIndividual IRI="#purposeA"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Purpose"/>
+        <NamedIndividual IRI="#purposeB"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#State"/>
         <NamedIndividual IRI="#stateA"/>
     </ClassAssertion>
@@ -167,6 +199,20 @@
         <Class IRI="#State"/>
         <NamedIndividual IRI="#stateB"/>
     </ClassAssertion>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#purposeA"/>
+        <NamedIndividual IRI="#purposeB"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <NamedIndividual IRI="#afford"/>
+        <NamedIndividual IRI="#purposeB"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasParameter"/>
+        <NamedIndividual IRI="#holder"/>
+        <NamedIndividual IRI="#bookB"/>
+    </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="owl:position"/>
@@ -211,6 +257,11 @@
         <NamedIndividual IRI="#pay"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasConsequence"/>
+        <NamedIndividual IRI="#purposeB"/>
+        <NamedIndividual IRI="#stateB"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPredicate"/>
         <NamedIndividual IRI="#stateA"/>
         <NamedIndividual IRI="#isOwnerOf"/>
@@ -221,9 +272,9 @@
         <NamedIndividual IRI="#purposeA"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isConsequenceOf"/>
+        <ObjectProperty IRI="#hasPredicate"/>
         <NamedIndividual IRI="#stateB"/>
-        <NamedIndividual IRI="#purposeA"/>
+        <NamedIndividual IRI="#holder"/>
     </ObjectPropertyAssertion>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasConsequence"/>

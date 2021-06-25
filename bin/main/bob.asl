@@ -3,7 +3,22 @@
  * First example - different agents and purposes in the same scenario. 
  */
 
-{ include("common.asl") }
+//{ include("common.asl") }
+
+!in_bh_institution.
+
+
+// plan for join in the institution.
++!in_bh_institution <-
+   joinWorkspace("bh",_);
+   lookupArtifact("bh_art", InstArt);
+   focus(InstArt).
+
+-!in_bh_institution <-
+   .wait(100);
+   !in_bh_institution.
+
+
 
  // plan for different purposes and same scenario. 
 
@@ -12,38 +27,38 @@
 
 +!percorreList([H|T])
 <-
-	//+H
-	//.term2string(Te,H);
-	
-	//.type(H,string);
-	
-	//+Te;
-	.print("Purpose: ", H);
+	//.print("Status: " , H);
+	.term2string(Te,H);
+	!searchActionCountAsStatus(Te);
 	!percorreList(T);
 	.
 
+// hasBook(Product); Product = nome do livro.
+
+//haveBook(Product) // goal
 
 
 +!isOwnerOf(Owner, Product) 
- <- .print("Owner is: " , Owner);
- 	.print("Product is: " , Product);
- 	// isPurposeofStatusFunction(Purpose, Product, NameStatusFunction);
+ <- //.print("Owner is: " , Owner);
+ 	//.print("Product is: " , Product);
  	
- 	isPurposeOfState("isOwnerOf(joao, bookA)", NamePurpose);
+ 	// trocar string por Literal
  	
- 	if(.list(NamePurpose)){
- 		.print("יייי");
- 	}
- 	!percorreList(NamePurpose);
+ 	isPurposeOfState("isOwnerOf(joao,bookA)", NamePurpose); // Predicate has two terms.
+ 	//isPurposeOfState("isOwnerOf(bookA, joao)", NamePurpose); // Predicate has two terms.
+ 	
+ 	//isPurposeOfState("holder(bookB)", NamePurpose); // Predicate with one term.
+ 	
  	isPurposeOfSF(NamePurpose, NameStatusFunction);
- 	.term2string(Te,NameStatusFunction);
- 	.print("SF: " , Te);
-	!searchActionCountAsStatus(Te);
-	.
+ 	!percorreList(NameStatusFunction);
+ 	
+ 	//!searchActionCountAsStatus(NameStatusFunction);
+ 	.
+	
 	
 +!searchActionCountAsStatus(Status) : constitutive_rule(Action, Status,_,_)
 	<-
-	.print("acao associada ao Status: ", Action);
+	.print("action associated with the status: ", Action);
 	Action;
 	.
 
