@@ -222,22 +222,12 @@ public class OntologyArtifact extends Artifact {
 	 * @param purposes
 	 */
 	
-	//void isPurposeOfState(String predicate, OpFeedbackParam<String[]> purposes) {
+	
 	@OPERATION
 	void isPurposeOfState(Object predicate, OpFeedbackParam<String[]> purposes) {
-		System.out.println("Nem cheguei aqui..");
-		
-		//Literal predicate2 = Util.createLiteral(predicate);
-		
-		System.out.println("Literal: " + predicate.toString());
+		//Literal predicate2 = Util.createLiteral(predicate); own method to convert strint to literal
 		
 		Literal predicate2 = Literal.parseLiteral(predicate.toString());
-		
-		System.out.println(predicate2.getFunctor());
-		System.out.println(predicate2.getArity());
-		System.out.println(predicate2.getTerm(0));
-		System.out.println(predicate2.getTerm(1));
-		
 		
 		ArrayList<String> arrayStates;
 		ArrayList<String> arrayPurposes = new ArrayList<>();
@@ -252,7 +242,7 @@ public class OntologyArtifact extends Artifact {
 			purposes.set(Util.convertArrayListOfStringinArrayofString(arrayPurposes));
 		}
 		else {
-			//System.out.println("The terms of the predicate are incorrect.");
+			System.out.println("The terms of the predicate are incorrect.");
 			purposes.set(Util.convertArrayListOfStringinArrayofString(arrayPurposes));
 		}
 	}

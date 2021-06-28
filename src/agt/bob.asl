@@ -43,8 +43,6 @@
  	
  	isPurposeOfState(isOwnerOf(joao, Product), NamePurpose); // Predicate has two terms.
  	
- 	
- 	
  	//isPurposeOfState("isOwnerOf(bookA, joao)", NamePurpose); // Predicate has two terms.
  	//isPurposeOfState("holder(bookB)", NamePurpose); // Predicate with one term.
  	
