@@ -114,7 +114,7 @@
         <NamedIndividual IRI="#obterBook"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#payment"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#terBook"/>
@@ -187,7 +187,7 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Status-Function"/>
-        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#payment"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Ter"/>
@@ -214,7 +214,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPurposeOf"/>
         <NamedIndividual IRI="#haveBook"/>
-        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#payment"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasOwner"/>
@@ -238,27 +238,27 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPurpose"/>
-        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#payment"/>
         <NamedIndividual IRI="#getBook"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPurpose"/>
-        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#payment"/>
         <NamedIndividual IRI="#haveBook"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPurpose"/>
-        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#payment"/>
         <NamedIndividual IRI="#obtenirBook"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPurpose"/>
-        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#payment"/>
         <NamedIndividual IRI="#obterBook"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPurpose"/>
-        <NamedIndividual IRI="#pay"/>
+        <NamedIndividual IRI="#payment"/>
         <NamedIndividual IRI="#terBook"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>

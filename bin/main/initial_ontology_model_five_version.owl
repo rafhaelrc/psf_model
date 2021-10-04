@@ -109,13 +109,28 @@
         <NamedIndividual IRI="#bookB"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#commanding_an_attack"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#conquer_a_new_territory"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#holder"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#isHolderOf"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#isOwnerOf"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#joao"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#kill_a_friendly_base_soldier"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#new_territory"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#pay"/>
@@ -131,6 +146,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#stateB"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#stateSx"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty abbreviatedIRI="owl:position"/>
@@ -164,6 +182,14 @@
         <NamedIndividual IRI="#bookB"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Status-Function"/>
+        <NamedIndividual IRI="#commanding_an_attack"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Predicate"/>
+        <NamedIndividual IRI="#conquer_a_new_territory"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Predicate"/>
         <NamedIndividual IRI="#holder"/>
     </ClassAssertion>
@@ -178,6 +204,14 @@
     <ClassAssertion>
         <Class IRI="#Person"/>
         <NamedIndividual IRI="#joao"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Predicate"/>
+        <NamedIndividual IRI="#kill_a_friendly_base_soldier"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Purpose"/>
+        <NamedIndividual IRI="#new_territory"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Status-Function"/>
@@ -199,6 +233,14 @@
         <Class IRI="#State"/>
         <NamedIndividual IRI="#stateB"/>
     </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#State"/>
+        <NamedIndividual IRI="#stateSx"/>
+    </ClassAssertion>
+    <SameIndividual>
+        <NamedIndividual IRI="#isHolderOf"/>
+        <NamedIndividual IRI="#isOwnerOf"/>
+    </SameIndividual>
     <DifferentIndividuals>
         <NamedIndividual IRI="#purposeA"/>
         <NamedIndividual IRI="#purposeB"/>
@@ -207,6 +249,29 @@
         <ObjectProperty IRI="#hasPurpose"/>
         <NamedIndividual IRI="#afford"/>
         <NamedIndividual IRI="#purposeB"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPurpose"/>
+        <NamedIndividual IRI="#commanding_an_attack"/>
+        <NamedIndividual IRI="#new_territory"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="owl:position"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasParameter"/>
+        <NamedIndividual IRI="#conquer_a_new_territory"/>
+        <NamedIndividual IRI="#bookA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="owl:position"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasParameter"/>
+        <NamedIndividual IRI="#conquer_a_new_territory"/>
+        <NamedIndividual IRI="#joao"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasParameter"/>
@@ -242,6 +307,11 @@
         <NamedIndividual IRI="#bookA"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasConsequence"/>
+        <NamedIndividual IRI="#new_territory"/>
+        <NamedIndividual IRI="#stateSx"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPurpose"/>
         <NamedIndividual IRI="#pay"/>
         <NamedIndividual IRI="#purposeA"/>
@@ -275,6 +345,16 @@
         <ObjectProperty IRI="#hasPredicate"/>
         <NamedIndividual IRI="#stateB"/>
         <NamedIndividual IRI="#holder"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPredicate"/>
+        <NamedIndividual IRI="#stateSx"/>
+        <NamedIndividual IRI="#conquer_a_new_territory"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasPredicate"/>
+        <NamedIndividual IRI="#stateSx"/>
+        <NamedIndividual IRI="#kill_a_friendly_base_soldier"/>
     </ObjectPropertyAssertion>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasConsequence"/>

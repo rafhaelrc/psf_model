@@ -2,6 +2,7 @@ package pucrs.smart.ontology.oo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 import jason.asSyntax.ASSyntax;
 import jason.asSyntax.Literal;
@@ -35,6 +36,22 @@ public final class Util {
 		int i=0;
         // iterating over the hashset
         for(String ele: arrayList){
+          arr[i] = ele;
+          i++;
+        }
+		return arr;
+	}
+	
+	/**
+	 * Method that convert an arraylist of Literal in a list of Literal.
+	 * @param arrayList
+	 * @return list of strings
+	 */
+	public static Literal[] convertArrayListOfLiteralinArrayofLiteral(ArrayList<Literal> arrayList){
+		Literal arr[] = new Literal[arrayList.size()];
+		int i=0;
+        // iterating over the hashset
+        for(Literal ele: arrayList){
           arr[i] = ele;
           i++;
         }
@@ -129,7 +146,16 @@ public final class Util {
 	}
 	
 	
-	
+	public static Literal convertVetorWithAPredicateInLiteral(String[] vetor) {
+		Literal predicate = ASSyntax.createLiteral(vetor[0]);
+		if(vetor.length > 0) {
+			for (int i = 1; i < vetor.length; i++) {
+				Term term = ASSyntax.createString(vetor[i]);
+				predicate.addTerm(term);
+			}
+		}
+		return predicate;
+	}
 	
 
 }

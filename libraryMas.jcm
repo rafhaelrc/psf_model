@@ -13,7 +13,14 @@
 */
 
 mas libraryMas {
-
+	
+	agent sBob {
+    	goals: conqueringANewTerritory
+    	focus: onto_different_intentionality
+		focus: wsp_library.electronic_machine
+    }
+	
+	/*
     agent bob {
     	//goals: haveBook("multiAgentSystems")
     	//goals: isOwnerOf(joao, bookA)
@@ -22,7 +29,7 @@ mas libraryMas {
 		focus: wsp_library.electronic_machine
     }
     
-    /* 
+    
     agent alice {
     	goals: getBook("multiAgentSystems")
     	focus: onto_different_intentionality
@@ -54,7 +61,7 @@ mas libraryMas {
     	   	
     } 
     
-    */
+     */
     
     workspace wsp_library{
     	artifact electronic_machine: tools.ElectronicMachine()	 

@@ -277,5 +277,49 @@ public class OntologyArtifact extends Artifact {
 //	} 
 	
 	
+	@OPERATION
+	void getStatusFunctionAndReturnPurpose(Object statusFunction, OpFeedbackParam<String[]> purposes) {
+		ArrayList<String> arrayPurpose = new ArrayList<>();
+		for(String purpose : queryEngineString.getPurposesByStatusFunctions(String.valueOf(statusFunction))) {
+			//System.out.println("Purpose encontrado: " + purpose);
+			arrayPurpose.add(purpose);
+		}
+		purposes.set(Util.convertArrayListOfStringinArrayofString(arrayPurpose));
+	}
+	
+	
+	/**
+	 * get a list of purposes and return a list of the states related to purposes.
+	 * @param purposes
+	 * @param states
+	 * PRECISA CONSERTAR. EU TO PEGANDO SOMENTE O PRIMEIRO PROPÓSITO DA LISTA DE OBJETO E BUSCANDO OS STATES. 
+	 * SE TIVER MAIS DE UM PROPÓSITO NA LISTA, OS D+ SÃO IGNORADOS.
+	 */
+	@OPERATION
+	void isStateOfPurpose(Object[] purposes, OpFeedbackParam<String[]> states) {
+		ArrayList<String> arrayStates = new ArrayList<>();
+		ArrayList<String> arrayResultStates;
+		arrayResultStates =  queryEngineString.getStatesByPurpose(purposes[0].toString());
+		for (String state : arrayResultStates) {
+			arrayStates.add(state);
+			System.out.println("State: " + state);
+			queryEngineString.getPredicatesByState(state);
+		}
+		states.set(Util.convertArrayListOfStringinArrayofString(arrayStates));
+	}
+	
+	/**
+	 * 
+	 * @param states
+	 * @param predicates
+	 */
+	@OPERATION
+	void isPredicateOfState(Object[] states, OpFeedbackParam<Literal[]> predicates) {
+		ArrayList<Literal> returnPredicates = new ArrayList<>();
+		returnPredicates = queryEngineString.getPredicatesByState(states[0].toString());
+		predicates.set(Util.convertArrayListOfLiteralinArrayofLiteral(returnPredicates));
+	}
+	
+	
 }
 
