@@ -127,7 +127,7 @@
         <NamedIndividual IRI="#joao"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#kill_a_friendly_base_soldier"/>
+        <NamedIndividual IRI="#kill_soldier_from_allied_base"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#new_territory"/>
@@ -207,7 +207,7 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Predicate"/>
-        <NamedIndividual IRI="#kill_a_friendly_base_soldier"/>
+        <NamedIndividual IRI="#kill_soldier_from_allied_base"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Purpose"/>
@@ -254,24 +254,6 @@
         <ObjectProperty IRI="#hasPurpose"/>
         <NamedIndividual IRI="#commanding_an_attack"/>
         <NamedIndividual IRI="#new_territory"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="owl:position"/>
-            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasParameter"/>
-        <NamedIndividual IRI="#conquer_a_new_territory"/>
-        <NamedIndividual IRI="#bookA"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="owl:position"/>
-            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
-        </Annotation>
-        <ObjectProperty IRI="#hasParameter"/>
-        <NamedIndividual IRI="#conquer_a_new_territory"/>
-        <NamedIndividual IRI="#joao"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasParameter"/>
@@ -354,7 +336,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasPredicate"/>
         <NamedIndividual IRI="#stateSx"/>
-        <NamedIndividual IRI="#kill_a_friendly_base_soldier"/>
+        <NamedIndividual IRI="#kill_soldier_from_allied_base"/>
     </ObjectPropertyAssertion>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasConsequence"/>

@@ -11,6 +11,11 @@ public class ElectronicMachine extends Artifact{
 	}
 	
 	@OPERATION
+	public void brodcasting_a_message() {
+		System.out.println("Executing a brodcasting message");
+	}
+	
+	@OPERATION
 	public void transfer(String teste) {
 		System.out.println("Apenas testando..");
 	}

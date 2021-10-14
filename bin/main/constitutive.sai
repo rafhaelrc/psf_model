@@ -27,4 +27,4 @@ constitutive_rules:
 
 3: receiveAnything count-as afford. 
 
-4: sending_a_brodcast_message count-as commanding_an_attack.
+4: brodcasting_a_message count-as commanding_an_attack.
