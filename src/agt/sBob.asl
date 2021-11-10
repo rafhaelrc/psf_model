@@ -1,6 +1,6 @@
 { include("common_inst.asl") }
 
-anti_goal(kill_soldier_from_allied_base).
+anti_goal(kill_soldier_from_allied_basee).
 
 +!conqueringANewTerritory 
  <- 
@@ -10,7 +10,8 @@ anti_goal(kill_soldier_from_allied_base).
  	isStateOfPurpose(NamePurposes , States);
  	isPredicateOfState(States, Properties);
  	if(anti_goal(AG) & .member(AG, Properties)){
- 		.fail;
+ 		//.fail;
+ 		print("anti-goal found.");
 	}
  	else{
  		 brodcasting_a_message;
